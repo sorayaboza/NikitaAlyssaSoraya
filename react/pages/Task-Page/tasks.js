@@ -16,6 +16,10 @@ export default function Tasks() {
             <div className="task--boards">
                 <div className="task-container">
                     <div id="board"> Task List </div >
+                    <div className="add">
+                        <div id="add-item">+</div>
+                        <div id="add-item">ADD ITEM</div>
+                    </div>
                 </div>
                 <div className="task-container">
                     <div id="board"> In Progress </div>

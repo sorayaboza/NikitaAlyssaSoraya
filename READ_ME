@@ -1,2 +1,10 @@
 0_0
 omg hi
+hi :D !!
+
+
+Set-up Steps.
+1. Navigate to the react folder.
+2. Type 'npm install' in terminal.
+3. Type 'npm run dev' to run the program.
+4. Hit 'Ctrl+C' to kill the program.
