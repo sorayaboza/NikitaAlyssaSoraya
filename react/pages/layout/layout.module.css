@@ -1,0 +1,11 @@
+.container{
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header {
+    color: #D9ED92;
+}
