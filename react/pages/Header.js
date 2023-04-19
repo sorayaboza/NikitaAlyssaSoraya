@@ -13,12 +13,12 @@ export default function Header() {
                     </Link>
                 </h3>
                 <h3 id="nav-item">
-                    <Link href="/">
+                    <Link href="/Collaborate">
                         COLLABORATE
                     </Link>
                 </h3>
                 <h3 id="nav-item">
-                    <Link href="/Initial-Faculty-Ranking">
+                    <Link href="/Motivation">
                         MOTIVATION...
                     </Link>
                 </h3>

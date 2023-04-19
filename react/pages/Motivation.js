@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import Layout from "./layout/layout.js"
 
-export default function Initial_Faculty_Ranking() {
+export default function Motivation() {
     return(
         <Layout>
             <Head>
-                <title>Initial Faculty Ranking</title>
+                <title>Motivation</title>
             </Head>
 
-            <h1>Initial Faculty Ranking</h1>
+            <h1>Meow!</h1>
         </Layout>
     )
 }

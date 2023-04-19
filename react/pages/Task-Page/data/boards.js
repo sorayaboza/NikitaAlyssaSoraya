@@ -3,10 +3,14 @@ import React from 'react';
 const boardData = [
     {
         id: 0,
-        progress: "In Progress",
+        progress: "Task List",
     },
     {
         id: 1,
+        progress: "In Progress",
+    },
+    {
+        id: 2,
         progress: "Complete",
     },
 ];

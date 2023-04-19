@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 *>*{
   font-family: 'Press Start 2P', cursive;
+  line-height: 20px;
 }
 
 body {
@@ -77,6 +78,7 @@ a:hover { text-decoration: none; color:#1A759F; }
 .add {
   display: flex;
   flex-direction: row;
+  align-self:start;
   font-size: 10px;
   gap: 17px;
 }
@@ -85,6 +87,23 @@ a:hover { text-decoration: none; color:#1A759F; }
   border: solid 3px black;
   box-shadow: -2px 2px black;
   padding: 5px;
+  background: #1A759F;
+}
+
+.curr-tasks {
+  width: 100%;
+  overflow: auto;
+}
+
+.curr-task-container {
+  font-size: 11.5px;
+  color: #D9ED92;
+  border: solid 3px black;
+  box-shadow: -2px 2px black;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin: 10px;
   background: #1A759F;
 }
 
@@ -101,6 +120,9 @@ a:hover { text-decoration: none; color:#1A759F; }
 @media only screen and (max-width: 850px) {
   .nav-bar {
     font-size: 8px;
+  }
+  .task--boards {
+    gap: 0px;
   }
   #board {
     font-size: 10px;
@@ -119,13 +141,19 @@ a:hover { text-decoration: none; color:#1A759F; }
 }
 @media only screen and (max-width: 600px) {
   .nav-bar {
-    font-size: 6.1px;
+    display: flex;
+    flex-direction: column;
+    font-size: 7px;
+    width: 410px;
   }
-
   .task--boards {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 80vh;
+    align-self: center;
+    width: 390px;
+  }
+  .curr-task-container {
+    font-size: 10px;
   }
 }
