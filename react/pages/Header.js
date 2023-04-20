@@ -22,6 +22,11 @@ export default function Header() {
                         MOTIVATION...
                     </Link>
                 </h3>
+                <h3 id="nav-item">
+                    <Link href="/">
+                        Log out
+                    </Link>
+                </h3>
             </div>
         </nav>
     )

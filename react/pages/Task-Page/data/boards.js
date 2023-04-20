@@ -8,7 +8,8 @@ const boardData = [
             { id: 10, task: "Buy shovel"},
             { id: 20, task: "Find good spot in backyard"},
             { id: 30, task: "Bury it. Bury it deep."},
-            { id: 40, task: "Get cookies for Andy :D"}
+            { id: 40, task: "Get cookies for Andy :D"},
+            { id: 50, task: "test for long wall of text test for long wall of text test for long wall of text test for long wall of text test for long wall of text test for long wall of text test for long wall of text "}
         ]
     },
     {

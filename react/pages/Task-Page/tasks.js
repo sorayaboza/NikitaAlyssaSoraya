@@ -70,12 +70,14 @@ function Tasks() {
                     <Droppable droppableId="ROOT" type="group">
                         {(provided) => ( // 'provided' gives intoformation of the current state of app
                             <div {...provided.droppableProps} ref={provided.innerRef}>
-                                {boards.map((board, i) => (
-                                    <div className="board--card" {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
-                                        <BoardCards {...board} key={board.id} index={i}/> 
-                                    </div>
-                                ))}
-                                {provided.placeholder}
+                                <div className="board--container">
+                                    {boards.map((board, i) => (
+                                        <div className="board--card" {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
+                                            <BoardCards {...board} key={board.id} index={i}/> 
+                                        </div>
+                                    ))}
+                                    {provided.placeholder}
+                                </div>
                             </div>
                         )}
                     </Droppable>
