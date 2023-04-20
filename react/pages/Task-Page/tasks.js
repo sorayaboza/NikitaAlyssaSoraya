@@ -71,11 +71,9 @@ function Tasks() {
                         {(provided) => ( // 'provided' gives intoformation of the current state of app
                             <div {...provided.droppableProps} ref={provided.innerRef}>
                                 {boards.map((board, i) => (
-
-                                        <div className="board--card" {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
-                                            <BoardCards {...board} key={board.id} index={i}/> 
-                                        </div>
-
+                                    <div className="board--card" {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
+                                        <BoardCards {...board} key={board.id} index={i}/> 
+                                    </div>
                                 ))}
                                 {provided.placeholder}
                             </div>
@@ -88,11 +86,10 @@ function Tasks() {
 
 function BoardCards({ progress, items, id }) {
     return (
-        <div className="drop--containers">
         <Droppable droppableId={id}>
             {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef} className="task-container">
-                <div id="board"> {progress} </div >
+                <div id="progress">{progress}</div >
                 <div className="curr-tasks">
                     {items.map((item, index) => (
                         <Draggable draggableId={"draggable-item-" + item.id.toString()} index={index} key={item.id}>
@@ -112,7 +109,6 @@ function BoardCards({ progress, items, id }) {
             </div>
             )}
         </Droppable>
-        </div>
         
     )
 }
