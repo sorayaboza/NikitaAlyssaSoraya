@@ -8,7 +8,9 @@ export default function Motivation() {
                 <title>Motivation</title>
             </Head>
 
-            <h1>Meow!</h1>
+            <div className="motivation">
+                <h1>Meow!</h1>
+            </div>
         </Layout>
     )
 }

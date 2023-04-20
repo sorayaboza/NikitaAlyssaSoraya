@@ -8,13 +8,14 @@ export default function Home() {
       <Head>
         <title>Welcome Page - Sign-In Page</title>
       </Head>
-      
-      <Link href="">
-        <h1>REGISTER</h1>
-      </Link>
-      <Link href="">
-        <h1>LOG-IN</h1>
-      </Link>
+      <div className="account-items">
+        <Link href="">
+          <h1 id="account-btn">REGISTER</h1>
+        </Link>
+        <Link href="">
+          <h1 id="account-btn">LOG-IN</h1>
+        </Link>
+      </div>
     </Layout>
   )
 }

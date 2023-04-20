@@ -10,47 +10,84 @@ body {
   margin: 0;
 }
 
+
+
+/* -----MAIN PAGE BELOW----- */
+.account-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
+#account-btn {
+  border: solid 3px #0c2a54;
+  background-color: #D9ED92;
+  box-shadow: -5px 5px #0c2a54;
+  color: #0c2a54;
+  padding: 6px;
+}
+/* -----MAIN PAGE ABOVE----- */
+
+
+
+/* -----NAV BAR BELOW----- */
 .nav-bar {
   background-color: #34A0A4;
-  color: #D9ED92;
-  text-shadow: -2.5px 2.5px #184E77;
+  color: #0c2a54;
   border-bottom: 1px solid #D9ED92;
-
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
-
 #title {
   font-size: 30px;
 }
 .nav-items {
   display: flex;
+  margin: 7px;
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
 }
 #nav-item {
   padding: 7px;
   margin: 7px;
+  border: solid 3px #0c2a54;
+  background-color: #D9ED92;
+  box-shadow: -5px 5px #0c2a54;
+  color: #0c2a54;
 }
 
+/* -----NAV BAR ABOVE----- */
+
+
+
+/* -----LINK STUFF BELOW----- */
 a:link { text-decoration: none; }
 a:visited { 
   text-decoration: none; 
-  color: #D9ED92;
+  color: #0c2a54;
 }
-a:hover { text-decoration: none; color:#1A759F; }
+a:hover { 
+  text-decoration: none; 
+  color:#18998c; 
+}
+/* -----LINK STUFF ABOVE----- */
 
+
+
+/* -----TASKBOARD BELOW----- */
 .board--container {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-
 .task-container {
   display: flex;
-  border: solid 3px black;
+  border: solid 3px #0c2a54;
   background: #34A0A4;
-  box-shadow: -5px 5px black;
+  box-shadow: -5px 5px #0c2a54;
   margin: 10px;
   padding: 10px;
   width: 50vh;
@@ -58,20 +95,19 @@ a:hover { text-decoration: none; color:#1A759F; }
   flex-direction: column;
   align-items: center;
 }
-
 #progress {
-  color: #D9ED92;
-  border: solid 3px black;
-  background: #1A759F;
-  box-shadow: -3px 3px black;
-  padding: 15px;
+  color: #0c2a54;
+  font-weight: bold;
+  border: solid 3px #0c2a54;
+  background: #D9ED92;
+  box-shadow: -3px 3px #0c2a54;
+  padding: 5px;
   width: 60%;
-  font-size: 12px;
+  font-size: 20px;
   justify-content: center;
   margin: 10px;
   margin-top: 0px;
 }
-
 .add {
   display: flex;
   flex-direction: row;
@@ -81,41 +117,55 @@ a:hover { text-decoration: none; color:#1A759F; }
 }
 #add-item {
   color: #D9ED92;
-  border: solid 3px black;
-  box-shadow: -2px 2px black;
+  border: solid 3px #0c2a54;
+  box-shadow: -2px 2px #0c2a54;
   padding: 5px;
   background: #1A759F;
 }
-
 .curr-tasks {
   width: 100%;
   overflow: auto;
 }
-
 .curr-tasks::-webkit-scrollbar {
   display: none;
 }
-
 .curr-task-container {
   font-size: 11.5px;
   color: #D9ED92;
-  border: solid 3px black;
-  box-shadow: -2px 2px black;
+  border: solid 3px #0c2a54;
+  box-shadow: -4px 4px #0c2a54;
   padding: 5px;
   padding-left: 8px;
   padding-right: 8px;
   margin: 10px;
   background: #1A759F;
 }
+/* -----TASKBOARD ABOVE----- */
+
+
+
+/* -----MOTIVATION BELOW----- */
+.motivation {
+  display: flex;
+  border: solid 3px #0c2a54;
+  background: #1A759F;
+  justify-content: center;
+  color: #D9ED92;
+  font-size: 20px;
+  text-shadow: -3px 3px #0c2a54;
+}
+/* -----MOTIVATION ABOVE----- */
 
 @media only screen and (max-width: 1100px) {
   .nav-bar {
     font-size: 9px;
   }
-
   .task-container {
     max-width: 90%;
     align-self: center;
+  }
+  #progress {
+    font-size: 15px;
   }
 }
 @media only screen and (max-width: 870px) {
@@ -152,6 +202,9 @@ a:hover { text-decoration: none; color:#1A759F; }
 @media only screen and (max-height: 600px) {
   .curr-task-container {
     font-size: 10px;
+  }
+  #progress {
+    font-size: 15px;
   }
 }
 

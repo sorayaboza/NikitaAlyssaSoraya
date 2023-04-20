@@ -9,7 +9,7 @@ export default function Layout({ children, home }) {
             </Head>
             <header className={styles.header}>
                 { home? (
-                    <h1>Welcome!</h1>
+                    <h1>TASK BOARD!</h1>
                 ) : (
                     ""
                 )}

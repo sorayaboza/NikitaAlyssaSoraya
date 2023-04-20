@@ -3,7 +3,7 @@ import React from 'react';
 const boardData = [
     {
         id: 0,
-        progress: "Task List",
+        progress: "TASK LIST",
         items: [
             { id: 10, task: "Buy shovel"},
             { id: 20, task: "Find good spot in backyard"},
@@ -14,14 +14,14 @@ const boardData = [
     },
     {
         id: 1,
-        progress: "In Progress",
+        progress: "IN PROGRESS",
         items: [
             { id: 11, task: "Cleaning"},
         ]
     },
     {
         id: 2,
-        progress: "Complete",
+        progress: "COMPLETE",
         items: []
     },
 ];
