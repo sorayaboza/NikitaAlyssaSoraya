@@ -2,7 +2,7 @@ import React from 'react';
 
 const boardData = [
     {
-        id: 0,
+        id: 1,
         progress: "TASK LIST",
         items: [
             { id: 10, task: "Buy shovel"},
@@ -13,14 +13,14 @@ const boardData = [
         ]
     },
     {
-        id: 1,
+        id: 2,
         progress: "IN PROGRESS",
         items: [
             { id: 11, task: "Cleaning"},
         ]
     },
     {
-        id: 2,
+        id: 3,
         progress: "COMPLETE",
         items: []
     },

@@ -61,27 +61,38 @@ function Tasks() {
 
         setBoards(newBoards)
     }
+
+    function clicked() {
+        console.log("clicked!")
+    }
+
     return (
         <Layout>
             <Head>
                 <title>TaskBoard</title>
             </Head>
-                <DragDropContext onDragEnd={handleDragDrop}>
-                    <Droppable droppableId="ROOT" type="group">
-                        {(provided) => ( // 'provided' gives intoformation of the current state of app
-                            <div {...provided.droppableProps} ref={provided.innerRef}>
-                                <div className="board--container">
-                                    {boards.map((board, i) => (
-                                        <div className="board--card" {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
-                                            <BoardCards {...board} key={board.id} index={i}/> 
-                                        </div>
-                                    ))}
-                                    {provided.placeholder}
-                                </div>
+            <div className="task-board">
+            <div className="add">
+                <button onClick={clicked} className="add-item" id="add-btn">+</button>
+                <div className="add-item">ADD TASK</div>
+            </div>
+            <DragDropContext onDragEnd={handleDragDrop}>
+                <Droppable droppableId="ROOT" type="group">
+                    {(provided) => ( // 'provided' gives intoformation of the current state of app
+                        <div {...provided.droppableProps} ref={provided.innerRef}>
+                            <div className="board--container">
+                                {boards.map((board, i) => (
+                                    <div className="board--card" {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
+                                        <BoardCards {...board} key={board.id} index={i}/> 
+                                    </div>
+                                ))}
+                                {provided.placeholder}
                             </div>
-                        )}
-                    </Droppable>
-                </DragDropContext>
+                        </div>
+                    )}
+                </Droppable>
+            </DragDropContext>
+            </div>
         </Layout>
     )
 }
@@ -93,25 +104,24 @@ function BoardCards({ progress, items, id }) {
             <div {...provided.droppableProps} ref={provided.innerRef} className="task-container">
                 <div id="progress">{progress}</div >
                 <div className="curr-tasks">
-                    {items.map((item, index) => (
-                        <Draggable draggableId={"draggable-item-" + item.id.toString()} index={index} key={item.id}>
+                    {items.map((item, i) => (
+                        <Draggable draggableId={"draggable-item-" + item.id.toString()} index={i} key={item.id}>
                             {(provided) => (
                                 <div className="curr-task-container" 
-                                {...provided.dragHandleProps} 
-                                {...provided.draggableProps} 
-                                ref={provided.innerRef}
+                                    {...provided.dragHandleProps} 
+                                    {...provided.draggableProps} 
+                                    ref={provided.innerRef}
                                 >
-                                <p>{item.task}</p>
+                                    <p>{item.task}</p>
                                 </div>
                             )}
                         </Draggable>
                     ))}
+                    {provided.placeholder}
                 </div>
-                {provided.placeholder}
             </div>
             )}
         </Droppable>
-        
     )
 }
 
