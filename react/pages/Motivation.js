@@ -3,8 +3,8 @@ import Layout from './layout/layout.js';
 import React, { useEffect, useState } from 'react';
 
 export default function Motivation() {
-  const [inspiration, setInspiration] = useState('Meow!');
-  const [person, setPerson] = useState('cat');
+  const [inspiration, setInspiration] = useState('Do it MEOW!');
+  const [person, setPerson] = useState('inspire cat');
   const [key, setKey] = useState(Math.random());
   const [image, setImage] = useState('');
 

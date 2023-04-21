@@ -3,6 +3,9 @@ omg hi
 hi :D !!
 
 
+Check that you have node.js installed ('node -v')
+If you don't, install it.
+
 Set-up Steps.
 1. Navigate to the react folder.
 2. Type 'npm install' in terminal.

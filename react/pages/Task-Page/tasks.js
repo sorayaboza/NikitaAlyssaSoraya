@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import BoardCards from "../../components/BoardCards"
+import Popup from 'reactjs-popup';
 import { boardData } from "./data/boards"
 import Head from 'next/head'
 import Layout from "../layout/layout.js"
@@ -62,8 +62,11 @@ function Tasks() {
         setBoards(newBoards)
     }
 
-    function clicked() {
-        console.log("clicked!")
+    function addItem() {
+        document.getElementById("myForm").style.display = "block";
+    }
+    function closeBox() {
+        document.getElementById("myForm").style.display = "none";
     }
 
     return (
@@ -71,27 +74,57 @@ function Tasks() {
             <Head>
                 <title>TaskBoard</title>
             </Head>
-            <div className="task-board">
-            <div className="add">
-                <button onClick={clicked} className="add-item" id="add-btn">+</button>
-                <div className="add-item">ADD TASK</div>
-            </div>
-            <DragDropContext onDragEnd={handleDragDrop}>
-                <Droppable droppableId="ROOT" type="group">
-                    {(provided) => ( // 'provided' gives intoformation of the current state of app
-                        <div {...provided.droppableProps} ref={provided.innerRef}>
-                            <div className="board--container">
-                                {boards.map((board, i) => (
-                                    <div className="board--card" {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
-                                        <BoardCards {...board} key={board.id} index={i}/> 
-                                    </div>
-                                ))}
-                                {provided.placeholder}
-                            </div>
+            <div>
+                <div>
+                    <div className="group">
+                        <div id="group-name"> Group Name: </div>
+                        <div id="g-name">Meow</div>
+                    </div>
+                    <div className="task-board">
+                        <div className="add">
+                            <Popup trigger=
+                                {<button className="add-item" id="add-btn"> + </button>}
+                                modal nested>
+                                    {
+                                    close => (
+                                        <div>
+                                            <div className="add-task-box"></div>
+                                            <div className='modal'>
+                                                <div className='content'>
+                                                    <form>
+
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <button className="add-item" id="add-btn" onClick=
+                                                        {() => close()}>
+                                                            Add Task
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                    }
+                            </Popup>
                         </div>
-                    )}
-                </Droppable>
-            </DragDropContext>
+                        <DragDropContext onDragEnd={handleDragDrop}>
+                            <Droppable droppableId="ROOT" type="group">
+                                {(provided) => ( // 'provided' gives intoformation of the current state of app
+                                    <div {...provided.droppableProps} ref={provided.innerRef}>
+                                        <div className="board--container">
+                                            {boards.map((board, i) => (
+                                                <div className="board--card" {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
+                                                    <BoardCards {...board} key={board.id} index={i}/> 
+                                                </div>
+                                            ))}
+                                            {provided.placeholder}
+                                        </div>
+                                    </div>
+                                )}
+                            </Droppable>
+                        </DragDropContext>
+                    </div>
+                </div>
             </div>
         </Layout>
     )
