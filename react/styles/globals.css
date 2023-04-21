@@ -161,10 +161,18 @@ a:hover {
 
 /* -----MOTIVATION BELOW----- */
 .cat-bg {
-  padding: 20px;
+  padding: 5px;
   display: flex;
 
   justify-content: center;
+}
+
+img {
+  width: 1200px;
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #inspire {
   border: solid 3px #0c2a54;
@@ -172,14 +180,16 @@ a:hover {
   color: #D9ED92;
   font-size: 11px;
   text-shadow: -3px 3px #0c2a54;
-  padding: 30px;
-  margin: 40px;
-  width: 245px;
-  height: 195px;
+  padding: 10px;
+  width: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   position: absolute;
+  line-height: 20px;
 }
 /* -----MOTIVATION ABOVE----- */
 

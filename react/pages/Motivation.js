@@ -16,9 +16,10 @@ export default function Motivation() {
         setPerson(data.author);
       });
 
-    const images = ['/images/motivation_cats_1.png', '/images/motivation_cats_2.png', '/images/motivation_cats_3.png'];
-    const randomIndex = Math.floor(Math.random() * images.length);
-    setImage(images[randomIndex]);
+      setImage("/images/motivation_cats.png")
+    //const images = ['/images/motivation_cats_1.png', '/images/motivation_cats_2.png', '/images/motivation_cats_3.png'];
+    //const randomIndex = Math.floor(Math.random() * images.length);
+    //setImage(images[randomIndex]);
   }, [key]);
 
   return (
@@ -27,10 +28,10 @@ export default function Motivation() {
         <title>Motivation</title>
       </Head>
       <div className="cat-bg">
-        <div id='inspire'>"{inspiration}" - {person}</div>
-      </div>
       <div id="cats">
         <img src={image} alt="Motivational cats"></img>
+      </div>
+        <div id='inspire'>"{inspiration}" - {person}</div>
       </div>
     </Layout>
   );
