@@ -6,22 +6,22 @@ export default function Header() {
             <div className="nav-items">
                 <h3 id="nav-item">
                     <Link href="/Task-Page/tasks">
-                        TASKBOARD
+                        <span id="nav-text">TASKBOARD</span>
                     </Link>
                 </h3>
                 <h3 id="nav-item">
                     <Link href="/Collaborate">
-                        COLLABORATE
+                        <span id="nav-text">COLLABORATE</span>
                     </Link>
                 </h3>
                 <h3 id="nav-item">
                     <Link href="/Motivation">
-                        MOTIVATION...
+                        <span id="nav-text">MOTIVATION...</span>
                     </Link>
                 </h3>
                 <h3 id="nav-item">
                     <Link href="/">
-                        Log out
+                    <span id="nav-text">Log out</span>
                     </Link>
                 </h3>
             </div>
