@@ -160,14 +160,19 @@ a:hover {
 
 
 /* -----MOTIVATION BELOW----- */
-.motivation {
-  display: flex;
+#inspire {
   border: solid 3px #0c2a54;
   background: #1A759F;
-  justify-content: center;
   color: #D9ED92;
-  font-size: 20px;
+  font-size: 15px;
   text-shadow: -3px 3px #0c2a54;
+  padding: 30px;
+  margin: 20px;
+  width: 300px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* -----MOTIVATION ABOVE----- */
 

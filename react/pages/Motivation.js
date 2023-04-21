@@ -1,16 +1,27 @@
-import Head from 'next/head'
-import Layout from "./layout/layout.js"
+import Head from 'next/head';
+import Layout from './layout/layout.js';
+import React, { useEffect, useState } from 'react';
 
 export default function Motivation() {
-    return(
-        <Layout>
-            <Head>
-                <title>Motivation</title>
-            </Head>
+  const [inspiration, setInspiration] = useState('Meow!');
+  const [person, setPerson] = useState('kitty');
+  const [key, setKey] = useState(Math.random());
 
-            <div className="motivation">
-                <h1>Meow!</h1>
-            </div>
-        </Layout>
-    )
+  useEffect(() => {
+    fetch(`https://api.goprogram.ai/inspiration?key=${key}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setInspiration(data.quote);
+        setPerson(data.author);
+      });
+  }, [key]);
+
+  return (
+    <Layout>
+      <Head>
+        <title>Motivation</title>
+      </Head>
+      <div id='inspire'>"{inspiration}" - {person}</div>
+    </Layout>
+  );
 }
