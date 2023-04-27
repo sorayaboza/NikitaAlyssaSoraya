@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Link from "next/link"
 import Layout from "./layout/layout.js"
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap'; //npm install react-bootstrap
+import axios from 'axios'; //npm install axios
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -12,12 +13,33 @@ export default function Home() {
     setShowModal(true);
   };
   
+  const usernameRef = useRef();
+  const passwordRef = useRef();
+  const handleLogin = async () => {
+    const username = usernameRef.current.value;
+    const password = passwordRef.current.value;
+    console.log(username,password)
+    try {
+      const response = await axios.post('http://127.0.0.1:5000/login', {
+        username: username,
+        password: password
+      });
+      // Handle successful login response
+      console.log(response.data.message);
+    } catch (error) {
+      // Handle error
+      console.error(error);
+    }
+  };
+
+    
   return (
     <Layout home>
       <Head>
         <title>Welcome Page - Sign-In Page</title>
       </Head>
 
+      {/* REGISTER/LOGIN BUTTONS */}
       <div className="account-items">
         <Link href="">
           <h1 id="account-btn" onClick={() => handleModalOpen('REGISTER')}>REGISTER</h1>
@@ -26,23 +48,19 @@ export default function Home() {
           <h1 id="account-btn" onClick={() => handleModalOpen('LOGIN')}>LOGIN</h1>
         </Link>
       </div>
-
+      
+      {/* POP-UP MODALS */}
       <Modal show={showModal} onHide={() => setShowModal(false)} style={{ marginTop: '7vw' }} className='Login-Register-Modal'>
-        <Modal.Header>
-          <Modal.Title>{modalContent}</Modal.Title>
-          <button
-            type="button"
-            className="login/register-cancel"
-            onClick={() => setShowModal(false)}>
-            Close 
-          </button>
+        <Modal.Header> {/* Header: Title and Cancel Button */}
+          <Modal.Title>{modalContent}</Modal.Title> {/*Title: Register / Login*/}
+          <button type="button" className="login/register-cancel" onClick={() => setShowModal(false)}>Cancel </button> {/* Cancel Button */}
         </Modal.Header>
         <Modal.Body>
           {modalContent === 'REGISTER' ? (
             <Form>
               <Form.Group controlId="registerEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Label>Username</Form.Label>
+                <Form.Control placeholder="Enter Username" />
               </Form.Group>
               <Form.Group controlId="registerPassword">
                 <Form.Label>Password</Form.Label>
@@ -53,14 +71,16 @@ export default function Home() {
           ) : (
             <Form>
               <Form.Group controlId="loginEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Label>Username</Form.Label>
+                {/* <Form.Control value = {loginData.username} onChange = {handleLoginChange} placeholder="Enter Username" /> */}
+                <Form.Control ref={usernameRef} placeholder="Enter Username" />
               </Form.Group>
               <Form.Group controlId="loginPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                {/* <Form.Control value = {loginData.password} onChange = {handleLoginChange} type="password" placeholder="Password" /> */}
+                <Form.Control ref = {passwordRef} type="password" placeholder="Password" />
               </Form.Group>
-              <Button variant="primary" type="submit">Login</Button>
+              <Button onClick = {handleLogin} variant="primary">Login</Button>
             </Form>
           )}
         </Modal.Body>
