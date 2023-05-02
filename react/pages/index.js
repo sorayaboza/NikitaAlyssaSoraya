@@ -50,12 +50,12 @@ export default function Home() {
       </div>
       
       {/* POP-UP MODALS */}
-      <Modal show={showModal} onHide={() => setShowModal(false)} style={{ marginTop: '7vw' }} className='Login-Register-Modal'>
-        <Modal.Header> {/* Header: Title and Cancel Button */}
-          <Modal.Title>{modalContent}</Modal.Title> {/*Title: Register / Login*/}
+      <Modal show={showModal} onHide={() => setShowModal(false)} id='Login-Register-Modal'>
+        <Modal.Header > {/* Header: Title and Cancel Button */}
+          <Modal.Title className='LRModal-Title'>{modalContent}</Modal.Title> {/*Title: Register / Login*/}
           <button type="button" className="login/register-cancel" onClick={() => setShowModal(false)}>Cancel </button> {/* Cancel Button */}
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body id = 'LRModal-Credentials'>
           {modalContent === 'REGISTER' ? (
             <Form>
               <Form.Group controlId="registerEmail">

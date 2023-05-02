@@ -16,8 +16,10 @@ body {
 .account-items {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   font-weight: bold;
+  margin-right: 30vw;
+  margin-top: 1%;
 }
 #account-btn {
   border: solid 3px #0c2a54;
@@ -26,6 +28,19 @@ body {
   color: #0c2a54;
   padding: 6px;
 }
+/* -----LOGIN/REGISTER MODAL BELOW----- */
+#Login-Register-Modal{
+  display: flex;
+  padding: 2vw;
+  background-color: #d9ed93;
+}
+#LRModal-Credentials{
+  /* contains the username/password labels along with the inputs inside */
+}
+.LRModal-Title{
+  color: #0c2954;
+}
+
 /* -----MAIN PAGE ABOVE----- */
 
 
@@ -373,8 +388,4 @@ label {
 }
 
 
-/* -----LOGIN/REGISTER MODAL BELOW----- */
-/* .Login-Register-Modal{
-  display: flex;
-  margin-bottom: 10vw;
-} */
+
