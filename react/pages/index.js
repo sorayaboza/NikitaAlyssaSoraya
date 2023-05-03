@@ -6,6 +6,7 @@ import { Modal, Button, Form } from 'react-bootstrap'; //npm install react-boots
 import axios from 'axios'; //npm install axios
 
 export default function Home() {
+  //MODAL
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
   const handleModalOpen = (content) => {
@@ -13,17 +14,23 @@ export default function Home() {
     setShowModal(true);
   };
   
+  //USER/PASS VAR
   const usernameRef = useRef();
   const passwordRef = useRef();
+  const register_usernameRef = useRef();
+  const register_passwordRef = useRef();
+  //LOGIN
   const handleLogin = async () => {
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
-    console.log(username,password)
     try {
       const response = await axios.post('http://127.0.0.1:5000/login', {
         username: username,
         password: password
       });
+      //clear
+      usernameRef.current.value = "";
+      passwordRef.current.value = "";
       // Handle successful login response
       console.log(response.data.message);
     } catch (error) {
@@ -31,6 +38,27 @@ export default function Home() {
       console.error(error);
     }
   };
+
+  //REGISTER
+  const handleRegistration = async () => {
+    const username = register_usernameRef.current.value;
+    const password = register_passwordRef.current.value;
+    console.log(username,password)
+    try {
+      const response = await axios.post('http://127.0.0.1:5000/register', {
+        username: username,
+        password: password
+      });
+      //clear
+      register_usernameRef.current.value = "";
+      register_passwordRef.current.value = "";
+      // Handle successful login response
+      console.log(response.data.message);
+    } catch (error) {
+      // Handle error
+      console.error(error);
+    }
+  }
 
     
   return (
@@ -60,25 +88,23 @@ export default function Home() {
             <Form>
               <Form.Group controlId="registerEmail">
                 <Form.Label>Username</Form.Label>
-                <Form.Control placeholder="Enter Username" />
+                <Form.Control ref={register_usernameRef} placeholder="Enter Username" /> {/*USERNAME*/}
               </Form.Group>
               <Form.Group controlId="registerPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control ref = {register_passwordRef} type="password" placeholder="Password" /> {/*PASSWORD*/}
               </Form.Group>
-              <Button variant="primary" type="submit">Register</Button>
+              <Button onClick = {handleRegistration} variant="primary">Register</Button>
             </Form>
           ) : (
             <Form>
               <Form.Group controlId="loginEmail">
                 <Form.Label>Username</Form.Label>
-                {/* <Form.Control value = {loginData.username} onChange = {handleLoginChange} placeholder="Enter Username" /> */}
-                <Form.Control ref={usernameRef} placeholder="Enter Username" />
+                <Form.Control ref={usernameRef} placeholder="Enter Username" /> {/*USERNAME*/}
               </Form.Group>
               <Form.Group controlId="loginPassword">
                 <Form.Label>Password</Form.Label>
-                {/* <Form.Control value = {loginData.password} onChange = {handleLoginChange} type="password" placeholder="Password" /> */}
-                <Form.Control ref = {passwordRef} type="password" placeholder="Password" />
+                <Form.Control ref = {passwordRef} type="password" placeholder="Password" /> {/*PASSWORD*/}
               </Form.Group>
               <Button onClick = {handleLogin} variant="primary">Login</Button>
             </Form>
